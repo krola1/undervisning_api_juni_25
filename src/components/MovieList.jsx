@@ -1,6 +1,12 @@
 import MovieCard from "./MovieCard.jsx";
 import tmdb from "../api.js";
 import { useQuery } from "@tanstack/react-query";
+///--swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, EffectCube } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/effect-cube";
 
 /// ----axios fetch function
 const fetchPopularMovies = async () => {
@@ -20,9 +26,9 @@ export default function MovieList() {
   if (error) return <p>feil: {error.message}</p>;
 
   return (
-    <div>
+    <div style={{ height: "100svh", display: "flex", alignItems: "center" }}>
       {data.map((movie) => (
-        <MovieCard {...movie} />
+        <MovieCard key={movie.id} {...movie} />
       ))}
     </div>
   );

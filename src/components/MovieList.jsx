@@ -30,7 +30,12 @@ export default function MovieList() {
       <Swiper
         modules={[Navigation, EffectCube]}
         effect="cube"
-        cubeEffect={{}}
+        cubeEffect={{
+          shadow: true,
+          slideShadows: true,
+          shadowOffset: 20,
+          shadowScale: 0.9,
+        }}
         navigation
         slidesPerView={1}
         spaceBetween={0}

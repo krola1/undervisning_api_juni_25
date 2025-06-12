@@ -27,9 +27,23 @@ export default function MovieList() {
 
   return (
     <div style={{ height: "100svh", display: "flex", alignItems: "center" }}>
-      {data.map((movie) => (
-        <MovieCard key={movie.id} {...movie} />
-      ))}
+      <Swiper
+        modules={[Navigation, EffectCube]}
+        effect="cube"
+        cubeEffect={{}}
+        navigation
+        slidesPerView={1}
+        spaceBetween={0}
+        style={{ width: "90svw", height: "70svh" }}
+      >
+        {data.map((movie) => (
+          <SwiperSlide key={movie.id}>
+            {/* <div style={{ height: "100%" }}> */}
+            <MovieCard {...movie} />
+            {/* </div> */}
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }
